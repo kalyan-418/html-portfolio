@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>
+            POPUP
+        </title>
+        <style>
+            .container{
+                background-color: paleturquoise;
+                background-image:url('R.jpeg');
+                width:100%;
+                height:100vh;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .popup{
+                width:300px;
+                position: absolute;
+                
+                align-items: center;
+                justify-items: center;
+                text-align:center;
+                transform: translate(-50%,-50%) scale(0.1);
+                top:1px;
+                backdrop-filter: blur(50px);
+                margin-top: -100px;
+                visibility: hidden;
+                transition: transform 0.5s ,top 0.1s;
+            }
+            .popup img{
+                margin-top:-80px;
+                border-radius: 1000px;                
+
+            }
+            .popup .ok{
+                color:azure;
+                background-color: green;
+                width:100px;
+                padding:10px;
+            }
+            .openpopup{
+                
+                top:50%;
+                margin-left: 300px;
+                visibility: visible;
+                transform: translate(-50%,-50%) scale(1);
+                animation: mymove 5s;
+            }
+            @keyframes mymove {
+                0%   {top: 50%;}
+                25%  {top: 40%;}
+                100%  {top: 50%;width: 400px;}
+                
+            }
+            input[type="text"] {
+                width: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>plz enter ur fnd name </h1><br>
+            <input type="text" placeholder="enter here" id="text">
+            <button type="submit" class="btn" onclick= "openpop()">
+                Submit
+            </button>
+            <div class="popup" id="OK1">
+                <img src="download.png">
+                <h1>SUBMITTED</h1>
+                <h1>THANK YOU</h1>
+                <button type="submit" class="ok"  onclick= "closepop()" >OK</button>
+            </div>
+        </div>
+        <script>
+            let popup1=document.getElementById("OK1");
+            function openpop(){
+                if(text.value.length>3){
+                    popup1.classList.add("openpopup");
+                }
+                else if(text.value.length==0){
+                    alert("enter name");
+                }
+                else {
+                    alert("enter Full name");
+                }
+            }
+            function closepop(){
+                popup1.classList.remove("openpopup");
+            }
+
+        </script>
+    </body>
+</html>
